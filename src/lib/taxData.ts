@@ -45,6 +45,7 @@ export interface TaxForm {
 export interface CountryGuide {
   slug: string;
   countryName: string;
+  countryCode: string;
   flagEmoji: string;
   region: string;
   imageUrl: string;
@@ -395,6 +396,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'united-kingdom',
     countryName: 'United Kingdom',
+    countryCode: 'GB',
     flagEmoji: '🇬🇧',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80',
@@ -419,6 +421,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'canada',
     countryName: 'Canada',
+    countryCode: 'CA',
     flagEmoji: '🇨🇦',
     region: 'Americas',
     imageUrl: 'https://images.unsplash.com/photo-1517935703635-27190760b298?auto=format&fit=crop&w=800&q=80',
@@ -442,6 +445,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'australia',
     countryName: 'Australia',
+    countryCode: 'AU',
     flagEmoji: '🇦🇺',
     region: 'Asia-Pacific',
     imageUrl: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80',
@@ -465,6 +469,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'germany',
     countryName: 'Germany',
+    countryCode: 'DE',
     flagEmoji: '🇩🇪',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80',
@@ -488,6 +493,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'singapore',
     countryName: 'Singapore',
+    countryCode: 'SG',
     flagEmoji: '🇸🇬',
     region: 'Asia-Pacific',
     imageUrl: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80',
@@ -511,6 +517,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'japan',
     countryName: 'Japan',
+    countryCode: 'JP',
     flagEmoji: '🇯🇵',
     region: 'Asia-Pacific',
     imageUrl: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80',
@@ -533,6 +540,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'france',
     countryName: 'France',
+    countryCode: 'FR',
     flagEmoji: '🇫🇷',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
@@ -555,6 +563,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'switzerland',
     countryName: 'Switzerland',
+    countryCode: 'CH',
     flagEmoji: '🇨🇭',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
@@ -577,6 +586,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'spain',
     countryName: 'Spain',
+    countryCode: 'ES',
     flagEmoji: '🇪🇸',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80',
@@ -599,6 +609,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'italy',
     countryName: 'Italy',
+    countryCode: 'IT',
     flagEmoji: '🇮🇹',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=800&q=80',
@@ -621,6 +632,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'netherlands',
     countryName: 'Netherlands',
+    countryCode: 'NL',
     flagEmoji: '🇳🇱',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80',
@@ -643,6 +655,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'ireland',
     countryName: 'Ireland',
+    countryCode: 'IE',
     flagEmoji: '🇮🇪',
     region: 'Europe',
     imageUrl: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=800&q=80',
@@ -665,6 +678,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'new-zealand',
     countryName: 'New Zealand',
+    countryCode: 'NZ',
     flagEmoji: '🇳🇿',
     region: 'Asia-Pacific',
     imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
@@ -687,6 +701,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'hong-kong',
     countryName: 'Hong Kong',
+    countryCode: 'HK',
     flagEmoji: '🇭🇰',
     region: 'Asia-Pacific',
     imageUrl: 'https://images.unsplash.com/photo-1506970845346-22b015392182?auto=format&fit=crop&w=800&q=80',
@@ -709,6 +724,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'united-arab-emirates',
     countryName: 'UAE (Dubai)',
+    countryCode: 'AE',
     flagEmoji: '🇦🇪',
     region: 'Middle East',
     imageUrl: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
@@ -731,6 +747,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
   {
     slug: 'mexico',
     countryName: 'Mexico',
+    countryCode: 'MX',
     flagEmoji: '🇲🇽',
     region: 'Americas',
     imageUrl: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80',
