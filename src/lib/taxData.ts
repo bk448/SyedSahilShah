@@ -529,6 +529,226 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
       'Japanese Inhabitant Tax (Juminzei) is billed a year in arrears, causing foreign tax credit timing issues',
       'Severe Japanese gift and inheritance taxes apply even to foreign assets after 10 years of residency'
     ]
+  },
+  {
+    slug: 'france',
+    countryName: 'France',
+    flagEmoji: '🇫🇷',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-France Double Taxation Treaty',
+    treatySummary: 'Article 24 grants substantial relief for US citizens living in France, shielding pensions and investment income from French double taxation while coordinating CSG/CRDS social levies.',
+    pensionTreatment: 'French statutory state retirement (Retraite de Base and Agirc-Arrco) is coordinated under totalization. Warning: Assurance-Vie contracts are NOT tax-deferred in the US and are treated as PFICs or foreign grantor trusts.',
+    pficTraps: 'French SICAVs and FCP funds held directly or inside Assurance-Vie trigger Form 8621 PFIC taxation.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'French Déclaration des Revenus', localDate: 'May / June (based on département)', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'French CSG and CRDS levies: historically contested for US Foreign Tax Credit eligibility',
+      'Assurance-Vie accounts must be disclosed on FBAR, FATCA, and potentially Form 8621'
+    ]
+  },
+  {
+    slug: 'switzerland',
+    countryName: 'Switzerland',
+    flagEmoji: '🇨🇭',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Switzerland Income Tax Convention',
+    treatySummary: 'Coordinates federal, cantonal, and communal taxes against US liabilities. Includes reciprocal exchange of banking information.',
+    pensionTreatment: 'Swiss Pillar 1 (AHV) and Pillar 2 (BVG / occupational) generally benefit from treaty deferral. Pillar 3a private pensions are complex and may require annual US tax reporting of earnings.',
+    pficTraps: 'Swiss collective investment schemes and Swiss-domiciled investment funds trigger Form 8621 PFIC rules.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Swiss Cantonal Return Deadline', localDate: 'March 31 (extensions commonly granted)', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'Swiss Cantonal wealth tax is not creditable against US income tax on Form 1116',
+      'Pillar 2 capital withdrawal upon leaving Switzerland requires careful cross-border planning'
+    ]
+  },
+  {
+    slug: 'spain',
+    countryName: 'Spain',
+    flagEmoji: '🇪🇸',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Spain Tax Treaty (Protocol 2019)',
+    treatySummary: 'Coordinates Spanish IRPF personal income tax and US returns. The 2019 Protocol lowered withholding rates on dividends and interest.',
+    pensionTreatment: 'Spanish planes de pensiones do not enjoy automatic US recognition; employer contributions and annual growth can create complex taxable events in the US.',
+    pficTraps: 'Spanish Fondos de Inversión (investment funds) are PFICs subject to Form 8621.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Spanish Declaración de la Renta', localDate: 'June 30', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'Spanish Wealth Tax (Impuesto sobre el Patrimonio) is not creditable on Form 1116',
+      'Beckham Law special tax regime requires careful coordination with US non-resident return positions'
+    ]
+  },
+  {
+    slug: 'italy',
+    countryName: 'Italy',
+    flagEmoji: '🇮🇹',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Italy Double Taxation Treaty',
+    treatySummary: 'Avoids double taxation on Italian IRPEF. Special substitute flat tax regimes (e.g. €100k lump sum) require surgical coordination.',
+    pensionTreatment: 'INPS Italian state pensions are coordinated under totalization. Complementary pensions (Fondi Pensione) require individual analysis.',
+    pficTraps: 'Italian and European UCITS investment funds are PFICs under IRS IRC § 1291-1298.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Italian Modello Redditi Persone Fisiche', localDate: 'November 30 (electronic)', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'Italian IVAFE (foreign financial asset tax) and IVIE (foreign real estate tax) cannot offset US tax',
+      'The 7% southern Italy pensioner regime requires careful analysis of US citizenship saving clause'
+    ]
+  },
+  {
+    slug: 'netherlands',
+    countryName: 'Netherlands',
+    flagEmoji: '🇳🇱',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Netherlands Double Taxation Convention',
+    treatySummary: 'Coordinates Dutch Box 1, Box 2, and Box 3 taxation. Dutch 30% ruling recipients must coordinate deemed non-resident status with Form 1040.',
+    pensionTreatment: 'Dutch pillar 2 company pensions generally enjoy tax deferral under treaty Article 19. Individual annuity policies must be scrutinized.',
+    pficTraps: 'Dutch Beleggingsfondsen and European index funds are PFICs on Form 8621.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Dutch Belastingdienst Inkomstenbelasting', localDate: 'May 1', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'Dutch Box 3 fictitious asset yield tax is difficult to credit against US capital gains taxes',
+      'Holding foreign assets inside an uncertified Dutch BV triggers Form 5471'
+    ]
+  },
+  {
+    slug: 'ireland',
+    countryName: 'Ireland',
+    flagEmoji: '🇮🇪',
+    region: 'Europe',
+    imageUrl: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Ireland Double Taxation Convention',
+    treatySummary: 'Provides reciprocal recognition of wages and pensions, coordinating Irish PAYE/USC against US federal returns.',
+    pensionTreatment: 'Irish occupational pensions and PRSAs benefit from treaty coordination. Unapproved retirement funds (ARFs) require careful post-retirement monitoring.',
+    pficTraps: 'Irish UCITS funds (Dublin is Europe’s largest fund hub) are quintessential PFICs for US citizens.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Irish Revenue ROS Self-Assessment', localDate: 'October 31 / mid-November', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: true,
+    commonPitfalls: [
+      'Irish 41% exit tax on foreign funds mismatches US capital gains treatment',
+      'Remittance basis taxpayers must maintain clean segregation of pre-arrival vs post-arrival capital'
+    ]
+  },
+  {
+    slug: 'new-zealand',
+    countryName: 'New Zealand',
+    flagEmoji: '🇳🇿',
+    region: 'Asia-Pacific',
+    imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-New Zealand Double Tax Agreement',
+    treatySummary: 'Coordinates New Zealand IRD income tax and US taxation. Operates with no capital gains tax on most long-term assets in NZ.',
+    pensionTreatment: 'KiwiSaver: The IRS frequently classifies KiwiSaver as a foreign trust (Form 3520/3520-A) or an employee benefit trust. Employer contributions and annual earnings are taxable in the US.',
+    pficTraps: 'NZ Portfolio Investment Entities (PIEs) and managed funds are PFICs under US rules.',
+    localTaxYear: 'April 1 to March 31 (mismatches US calendar year).',
+    usVsLocalDeadlines: [
+      { event: 'NZ Inland Revenue (IRD) Filing', localDate: 'July 7 (later with tax agent)', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: false,
+    commonPitfalls: [
+      'No Totalization Agreement with NZ: Self-employed US citizens in NZ face US SECA self-employment tax',
+      'NZ tax year offset (April 1 to March 31) requires pro-rating earnings across two US tax years'
+    ]
+  },
+  {
+    slug: 'hong-kong',
+    countryName: 'Hong Kong',
+    flagEmoji: '🇭🇰',
+    region: 'Asia-Pacific',
+    imageUrl: 'https://images.unsplash.com/photo-1506970845346-22b015392182?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'No Comprehensive US Bilateral Income Tax Treaty',
+    treatySummary: 'Because there is no income tax treaty, expats rely entirely on statutory Internal Revenue Code relief (FEIE Form 2555 and FTC Form 1116). Hong Kong territorial tax rates are low, meaning FEIE is usually chosen over FTC.',
+    pensionTreatment: 'Mandatory Provident Fund (MPF): MPF contributions and earnings are not tax-deferred in the US and must be declared annually on Form 1040 and FBAR.',
+    pficTraps: 'Hong Kong mutual funds, MPF investment choices, and Asian unit trusts are PFICs on Form 8621.',
+    localTaxYear: 'April 1 to March 31.',
+    usVsLocalDeadlines: [
+      { event: 'Hong Kong Inland Revenue (IRD) Filing', localDate: 'May / June', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: false,
+    commonPitfalls: [
+      'Low local salary tax rates result in minimal foreign tax credits, making FEIE crucial',
+      'No capital gains tax in HK means capital gains are taxed at full US federal rates'
+    ]
+  },
+  {
+    slug: 'united-arab-emirates',
+    countryName: 'UAE (Dubai)',
+    flagEmoji: '🇦🇪',
+    region: 'Middle East',
+    imageUrl: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'No US Bilateral Income Tax Treaty',
+    treatySummary: 'The UAE levies zero personal income tax. As a result, Americans in Dubai cannot claim Foreign Tax Credits on Form 1116 and must strictly qualify for the Foreign Earned Income Exclusion (FEIE Form 2555).',
+    pensionTreatment: 'End of Service Gratuity (EOSB) is taxable as earned income in the year received by the US expat. Workplace savings schemes (DIFC DEWS) require annual disclosure.',
+    pficTraps: 'Offshore investment bonds (e.g. Isle of Man, Luxembourg policies sold in Dubai) are severe PFIC and foreign trust traps.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'UAE Local Filing', localDate: 'N/A (No Personal Tax)', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: false,
+    commonPitfalls: [
+      'Failing the 330-day Physical Presence Test leaves 100% of Dubai wages exposed to US federal income tax',
+      'UAE Free Zone corporate entities trigger Form 5471 / 8858 reporting'
+    ]
+  },
+  {
+    slug: 'mexico',
+    countryName: 'Mexico',
+    flagEmoji: '🇲🇽',
+    region: 'Americas',
+    imageUrl: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80',
+    treatyStatus: 'Active US-Mexico Income Tax Treaty',
+    treatySummary: 'Coordinates Mexican SAT income taxation and US federal returns, offering protections against double taxation on cross-border business income.',
+    pensionTreatment: 'Mexican AFORE retirement accounts are coordinated under bilateral agreements. Disclosures required on FBAR and FATCA Form 8938.',
+    pficTraps: 'Mexican investment funds (Sociedades de Inversión) are PFICs subject to Form 8621.',
+    localTaxYear: 'January 1 to December 31.',
+    usVsLocalDeadlines: [
+      { event: 'Mexican SAT Declaración Anual', localDate: 'April 30', usDate: 'N/A' },
+      { event: 'US Expat 1040 Deadline', localDate: 'N/A', usDate: 'June 15' },
+      { event: 'US FBAR FinCEN 114', localDate: 'N/A', usDate: 'October 15' }
+    ],
+    totalizationAgreement: false,
+    commonPitfalls: [
+      'Mexican Fideicomiso (bank trusts holding coastal real estate) requires strict evaluation to confirm whether Form 3520 is excused under IRS Rev. Proc. 2013-14',
+      'Factura electronic invoice compliance for Mexican tax deductions'
+    ]
   }
 ];
 

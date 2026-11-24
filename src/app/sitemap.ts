@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { DIVISIONS, FORMS_DATABASE, COUNTRIES_DATABASE } from '@/lib/taxData';
+import { SERVICES_CATALOG } from '@/lib/servicesData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://expattax-us.com';
@@ -17,11 +18,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faqs`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/book-consultation`, lastModified: currentDate, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/request-quote`, lastModified: currentDate, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/privacy`, lastModified: currentDate, changeFrequency: 'yearly', priority: 0.5 },
+    { url: `${baseUrl}/terms`, lastModified: currentDate, changeFrequency: 'yearly', priority: 0.5 },
   ];
 
   // Dynamic Division pages
   const divisionPages: MetadataRoute.Sitemap = DIVISIONS.map((d) => ({
     url: `${baseUrl}/divisions/${d.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
+  // Dynamic Service pages
+  const servicePages: MetadataRoute.Sitemap = SERVICES_CATALOG.map((s) => ({
+    url: `${baseUrl}/services/${s.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: 0.85,
@@ -43,5 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...divisionPages, ...formPages, ...countryPages];
+  return [...staticPages, ...divisionPages, ...servicePages, ...formPages, ...countryPages];
 }

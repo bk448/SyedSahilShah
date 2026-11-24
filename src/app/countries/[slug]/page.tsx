@@ -27,13 +27,13 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
   return (
     <div className="space-y-16 pb-20">
       
-      {/* Country Header with Skyline Banner */}
-      <section className="relative overflow-hidden bg-slate-900 text-white">
+      {/* Country Header with Skyline Banner & Glassmorphism */}
+      <section className="relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={country.imageUrl}
             alt={country.countryName}
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent" />
         </div>
@@ -51,10 +51,10 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
             <div className="flex items-center gap-3">
               <span className="text-4xl">{country.flagEmoji}</span>
               <div>
-                <span className="text-xs font-bold text-sky-400 bg-sky-950/80 border border-sky-800 px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-bold text-sky-300 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-0.5 rounded-full">
                   {country.region} &bull; {country.treatyStatus}
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mt-1">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mt-1.5">
                   US Expat Taxes in {country.countryName}
                 </h1>
               </div>
@@ -68,14 +68,14 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/book-consultation"
-              className="px-6 py-3 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2"
+              className="px-7 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-sky-600/30 transition flex items-center gap-2 transform active:scale-95"
             >
               <span>Consult an Expat Specialist for {country.countryName}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/request-quote"
-              className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs rounded-xl transition"
+              className="px-7 py-3.5 bg-white/15 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs rounded-xl transition transform active:scale-95"
             >
               Request a Filing Quote
             </Link>
@@ -87,7 +87,7 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Bilateral Treaty Position */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-4">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-sky-600" />
             <h2 className="text-xl font-bold text-slate-900">Bilateral Income Tax Treaty Position</h2>
@@ -95,8 +95,8 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
             {country.treatySummary}
           </p>
-          <div className="p-3 bg-slate-50 rounded-xl text-xs text-slate-600 flex items-center justify-between">
-            <span>Totalization Agreement for Social Security:</span>
+          <div className="p-4 bg-slate-50 rounded-2xl text-xs text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span className="font-semibold">Totalization Agreement for Social Security:</span>
             <span className={`font-bold ${country.totalizationAgreement ? 'text-emerald-700' : 'text-rose-700'}`}>
               {country.totalizationAgreement ? '✓ Active Totalization Agreement (No Double Social Security Tax)' : '✗ No Totalization Agreement (Risk of Double Self-Employment Tax)'}
             </span>
@@ -104,7 +104,7 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* Local Pension & Retirement Accounts */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-4">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-indigo-600" />
             <h2 className="text-xl font-bold text-slate-900">Local Pension &amp; Retirement Account Treatment</h2>
@@ -115,30 +115,30 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* Deadlines Comparison Table */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-sky-600" />
               <h2 className="text-xl font-bold text-slate-900">Local vs. US Tax Filing Deadlines</h2>
             </div>
-            <span className="text-xs text-slate-500">Local Tax Year: <strong>{country.localTaxYear}</strong></span>
+            <span className="text-xs text-slate-500 font-medium">Local Tax Year: <strong>{country.localTaxYear}</strong></span>
           </div>
 
           <div className="table-responsive pt-2">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50 text-slate-600 uppercase tracking-wider">
-                  <th className="py-3 px-4 font-bold">Filing Milestone</th>
-                  <th className="py-3 px-4 font-bold">Local Authority Deadline</th>
-                  <th className="py-3 px-4 font-bold">US IRS / FinCEN Deadline</th>
+                  <th className="py-3.5 px-4 font-bold">Filing Milestone</th>
+                  <th className="py-3.5 px-4 font-bold">Local Authority Deadline</th>
+                  <th className="py-3.5 px-4 font-bold">US IRS / FinCEN Deadline</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {country.usVsLocalDeadlines.map((d, idx) => (
                   <tr key={idx} className="hover:bg-slate-50/50">
-                    <td className="py-3 px-4 font-semibold text-slate-900">{d.event}</td>
-                    <td className="py-3 px-4 text-slate-700">{d.localDate}</td>
-                    <td className="py-3 px-4 font-bold text-sky-700">{d.usDate}</td>
+                    <td className="py-3.5 px-4 font-semibold text-slate-900">{d.event}</td>
+                    <td className="py-3.5 px-4 text-slate-700">{d.localDate}</td>
+                    <td className="py-3.5 px-4 font-bold text-sky-700">{d.usDate}</td>
                   </tr>
                 ))}
               </tbody>
@@ -147,7 +147,7 @@ export default function CountryDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* Common PFIC Traps & Pitfalls */}
-        <div className="bg-rose-50 border border-rose-200 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div className="bg-rose-50 border border-rose-200 rounded-3xl p-6 sm:p-10 space-y-4">
           <div className="flex items-center gap-2 text-rose-900">
             <AlertTriangle className="w-5 h-5 text-rose-600" />
             <h2 className="text-xl font-bold">PFIC Traps &amp; Common Pitfalls in {country.countryName}</h2>
