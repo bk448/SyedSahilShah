@@ -26,6 +26,7 @@ export default function BookConsultationPage() {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     try {
@@ -46,8 +47,10 @@ export default function BookConsultationPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError('');
+
     try {
-      await fetch('/api/leads', {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -60,10 +63,15 @@ export default function BookConsultationPage() {
           selectedSlot: `${selectedSlot || '10:00 AM'} (${detectedTimezone})`
         })
       });
+
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.error || 'Booking could not be saved. Please try again.');
+      }
+
       setSubmitted(true);
     } catch (err) {
-      console.error(err);
-      setSubmitted(true);
+      setSubmitError(err instanceof Error ? err.message : 'Booking could not be saved. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -138,9 +146,9 @@ export default function BookConsultationPage() {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-slate-900">Consultation Confirmed!</h2>
+                <h2 className="text-2xl font-bold text-slate-900">Booking Request Received</h2>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Thank you, <strong>{name}</strong>. A calendar invite with a secure video call link and preparation checklist has been dispatched to <strong>{email}</strong>.
+                  Thank you, <strong>{name}</strong>. Your booking request has been saved. We will contact you at <strong>{email}</strong> to confirm your consultation.
                 </p>
               </div>
 
@@ -301,6 +309,12 @@ export default function BookConsultationPage() {
                   ))}
                 </div>
               </div>
+
+              {submitError && (
+                <p role="alert" className="text-sm text-rose-700">
+                  {submitError}
+                </p>
+              )}
 
               <button
                 type="submit"

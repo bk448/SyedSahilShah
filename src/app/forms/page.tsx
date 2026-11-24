@@ -41,11 +41,11 @@ export default function FormsHubPage() {
       {/* Forms Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {FORMS_DATABASE.map((form) => (
             <div 
               key={form.slug}
-              className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="card group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Form Image Header */}
               <div className="relative h-44 w-full overflow-hidden bg-slate-900">

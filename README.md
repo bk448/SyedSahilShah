@@ -82,4 +82,22 @@ This project uses an Edge-runtime compatible, encrypted JWT session cookie archi
    * `AUTH_SECRET`: A custom string for JWT signing (a secure fallback is included).
 5. Click **Deploy**. Both the static pages and the edge-authenticated `/portal` routes will run immediately.
 
+### Saving consultation bookings to Google Sheets
+
+Consultation bookings are appended to a `Consultation Bookings` tab in the configured spreadsheet. If the tab does not exist, the app creates it and adds the expected column headers. To enable this integration:
+
+1. Enable the Google Sheets API and IAM Service Account Credentials API in the Google Cloud project.
+2. Configure Workload Identity Federation to trust Vercel's OIDC issuer. Restrict the provider to this Vercel project and its production environment.
+3. Grant the federated identity permission to impersonate the service account using the Workload Identity User role.
+4. Share the target spreadsheet with the service account email address and grant it Editor access.
+5. Configure these environment variables in Vercel:
+   * `GOOGLE_SHEET_ID`: the spreadsheet ID from its URL.
+   * `GCP_PROJECT_NUMBER`: the Google Cloud project number.
+   * `GCP_SERVICE_ACCOUNT_EMAIL`: the service account email.
+   * `GCP_WORKLOAD_IDENTITY_POOL_ID`: the workload identity pool ID.
+   * `GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID`: the OIDC provider ID.
+   * `GOOGLE_SHEET_TAB` (optional): tab name; defaults to `Consultation Bookings`.
+
+This keyless integration uses short-lived Vercel OIDC tokens; do not create or store a service account JSON key. The booking form confirms a request only after Google Sheets accepts it.
+
 # SyedSahilShah

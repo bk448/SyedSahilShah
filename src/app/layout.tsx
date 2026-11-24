@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import DisclaimerBanner from '@/components/DisclaimerBanner';
 import CookieConsent from '@/components/CookieConsent';
 import JsonLd from '@/components/JsonLd';
+import { ScrollProgress, RevealObserver, CardFx } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'US Expat Tax Services | Specialist Cross-Border CPAs',
@@ -55,6 +56,9 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="flex flex-col min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-sky-500 selection:text-white">
+        <ScrollProgress />
+        <RevealObserver />
+        <CardFx />
         <DisclaimerBanner />
         <Navbar />
         <main className="flex-1">

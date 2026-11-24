@@ -18,6 +18,8 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { DIVISIONS, FORMS_DATABASE, COUNTRIES_DATABASE, GENERAL_FAQS } from '@/lib/taxData';
+import { CountUp } from '@/components/Motion';
+import { SplitText } from '@/components/SplitText';
 
 export default function HomePage() {
   const testimonials = [
@@ -97,15 +99,21 @@ export default function HomePage() {
               {/* Trust Indicators */}
               <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 text-center lg:text-left">
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-slate-900">4,500+</div>
+                  <div className="text-xl sm:text-2xl font-black text-slate-900">
+                    <CountUp value="4,500+" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium">Expat Returns Filed</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-slate-900">45+</div>
+                  <div className="text-xl sm:text-2xl font-black text-slate-900">
+                    <CountUp value="45+" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium">Countries Covered</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-emerald-600">$0</div>
+                  <div className="text-xl sm:text-2xl font-black text-emerald-600">
+                    <CountUp value="$0" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium">Amnesty Penalties Paid</div>
                 </div>
               </div>
@@ -131,14 +139,14 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Floating Trust Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white border border-slate-200 rounded-2xl p-4 shadow-xl hidden sm:flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+              {/* Floating Trust Card with Glassmorphism */}
+              <div className="absolute -bottom-6 -left-6 glass border border-white/80 rounded-2xl p-4 shadow-xl hidden sm:flex items-center gap-3 backdrop-blur-md">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-600 flex items-center justify-center font-bold">
                   ✓
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">IRS Streamlined Amnesty</div>
-                  <div className="text-[11px] text-slate-500">100% Penalty-Free Track Record</div>
+                  <div className="text-[11px] text-slate-600 font-medium">100% Penalty-Free Track Record</div>
                 </div>
               </div>
             </div>
@@ -148,8 +156,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Practice Divisions (Uniform Image Dimensions & Text Alignment) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* 2. Practice Divisions */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 reveal">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <span className="text-xs font-bold text-sky-600 uppercase tracking-wider">Practice Divisions</span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">Structured Around Your Exact Situation</h2>
@@ -158,11 +166,11 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch reveal-stagger">
           {DIVISIONS.map((division) => (
             <div 
               key={division.slug}
-              className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-sky-300 transition flex flex-col justify-between group"
+              className="card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 transition flex flex-col justify-between group"
             >
               {/* Perfectly uniform 16/10 aspect ratio image */}
               <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100">
@@ -293,11 +301,11 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
           {FORMS_DATABASE.slice(0, 4).map(form => (
             <div 
               key={form.slug}
-              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-sky-300 transition flex flex-col justify-between space-y-4"
+              className="card bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-sky-300 transition flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -348,12 +356,12 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch reveal-stagger">
           {COUNTRIES_DATABASE.slice(0, 6).map(country => (
             <Link
               key={country.slug}
               href={`/countries/${country.slug}`}
-              className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 hover:shadow-md transition group flex flex-col justify-between"
+              className="card country-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 hover:shadow-md transition group flex flex-col justify-between"
             >
               <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100">
                 <img
@@ -394,9 +402,9 @@ export default function HomePage() {
           <p className="text-xs sm:text-sm text-slate-500">Read verified experiences from American professionals and families living abroad.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
           {testimonials.map((t, idx) => (
-            <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
+            <div key={idx} className="card bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex items-center gap-1 text-amber-400">
                   {[...Array(t.rating)].map((_, i) => (

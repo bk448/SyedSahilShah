@@ -33,7 +33,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-900">3. Marketing Forms vs. Client Portal</h2>
           <p>
-            Our public marketing forms (Book Consultation, Request Quote) only collect preliminary contact details and situation categorizations. <strong>Never submit Social Security Numbers (SSNs), ITINs, or bank account numbers through marketing forms.</strong> Formal document intake is restricted to the password-authenticated Client Portal.
+            Our public marketing forms (Book Consultation, Request Quote) only collect preliminary contact details and situation categorizations. Consultation booking details are stored in a Google Sheet in our practice Drive account so our team can follow up. <strong>Never submit Social Security Numbers (SSNs), ITINs, or bank account numbers through marketing forms.</strong> Formal document intake is restricted to the password-authenticated Client Portal.
           </p>
         </section>
 

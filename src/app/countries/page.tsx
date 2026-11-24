@@ -32,12 +32,12 @@ export default function CountriesHubPage() {
 
       {/* Country Cards Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 reveal-stagger">
           {COUNTRIES_DATABASE.map((country) => (
             <Link
               key={country.slug}
               href={`/countries/${country.slug}`}
-              className="group flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-xl overflow-hidden"
+              className="card country-card group flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-sky-300 overflow-hidden"
             >
               {/* Card Landmark Image Banner */}
               <div className="relative h-44 w-full overflow-hidden bg-slate-900">
