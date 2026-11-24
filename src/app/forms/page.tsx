@@ -45,55 +45,75 @@ export default function FormsHubPage() {
           {FORMS_DATABASE.map((form) => (
             <div 
               key={form.slug}
-              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-sky-300 hover:shadow-md transition flex flex-col justify-between space-y-4"
+              className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-black text-sky-800 bg-sky-100 px-2.5 py-1 rounded-md">
+              {/* Form Image Header */}
+              <div className="relative h-44 w-full overflow-hidden bg-slate-900">
+                <img
+                  src={form.imageUrl || 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80'}
+                  alt={`IRS Form ${form.formNumber}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span className="text-xs font-black text-sky-900 bg-sky-100/95 backdrop-blur-md px-2.5 py-1 rounded-md shadow-sm">
                     Form {form.formNumber}
                   </span>
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                    form.penaltySeverity === 'critical' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full backdrop-blur-md shadow-sm ${
+                    form.penaltySeverity === 'critical' ? 'bg-rose-100/95 text-rose-900 border border-rose-200' : 'bg-amber-100/95 text-amber-900 border border-amber-200'
                   }`}>
                     {form.penaltySeverity} penalty
                   </span>
                 </div>
 
-                <h2 className="text-base font-bold text-slate-900 line-clamp-1">
-                  <Link href={`/forms/${form.slug}`} className="hover:text-sky-600 transition">
-                    {form.name}
-                  </Link>
-                </h2>
-
-                <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                  {form.summary}
-                </p>
-
-                <div className="p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
-                    <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>Due: {form.dueDate}</span>
-                  </div>
-                  <div className="text-[11px] text-rose-700 font-medium line-clamp-1">
-                    ⚠️ {form.penalties}
-                  </div>
+                <div className="absolute bottom-3 left-3 right-3">
+                  <span className="text-[11px] font-semibold text-sky-200 bg-sky-950/70 backdrop-blur-md px-2 py-0.5 rounded-full border border-sky-400/30">
+                    {form.category}
+                  </span>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
-                <Link 
-                  href={`/forms/${form.slug}`}
-                  className="text-sky-600 hover:text-sky-700 flex items-center gap-1"
-                >
-                  <span>Form details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  href="/book-consultation"
-                  className="text-slate-500 hover:text-slate-800"
-                >
-                  Get Help Filing
-                </Link>
+              {/* Form Card Content */}
+              <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
+                <div className="space-y-3">
+                  <h2 className="text-base font-bold text-slate-900 line-clamp-1 group-hover:text-sky-700 transition">
+                    <Link href={`/forms/${form.slug}`}>
+                      {form.name}
+                    </Link>
+                  </h2>
+
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    {form.summary}
+                  </p>
+
+                  <div className="p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs border border-slate-100">
+                    <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
+                      <Clock className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                      <span className="line-clamp-1">Due: {form.dueDate}</span>
+                    </div>
+                    <div className="text-[11px] text-rose-700 font-medium line-clamp-1">
+                      ⚠️ {form.penalties}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
+                  <Link 
+                    href={`/forms/${form.slug}`}
+                    className="text-sky-600 hover:text-sky-700 flex items-center gap-1"
+                  >
+                    <span>Form details</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href="/book-consultation"
+                    className="text-slate-500 hover:text-sky-600"
+                  >
+                    Get Help Filing
+                  </Link>
+                </div>
               </div>
 
             </div>

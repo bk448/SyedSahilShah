@@ -43,13 +43,30 @@ export default function BookConsultationPage() {
     { id: 'slot-4', time: '08:00 PM', label: 'Late Evening slot (Local Time)' }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'consultation',
+          name,
+          email,
+          phone,
+          country,
+          situation,
+          selectedSlot: `${selectedSlot || '10:00 AM'} (${detectedTimezone})`
+        })
+      });
       setSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.error(err);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

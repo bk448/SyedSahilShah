@@ -40,6 +40,7 @@ export interface TaxForm {
   relatedServiceName: string;
   applicableYears: string;
   keyInstructions: string[];
+  imageUrl?: string;
 }
 
 export interface CountryGuide {
@@ -250,6 +251,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'annual-expat-1040',
     relatedServiceName: 'Annual Expat 1040 Preparation',
     applicableYears: 'All Tax Years (2020–2025+)',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Report all worldwide income converted to USD using official IRS yearly average exchange rates.',
       'Must attach Form 2555 or Form 1116 to claim double-tax relief.',
@@ -270,6 +272,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'fbar-fatca-reporting',
     relatedServiceName: 'FBAR & FATCA Compliance',
     applicableYears: 'Annual ongoing requirement',
+    imageUrl: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Includes checking, savings, investment accounts, foreign mutual funds, and signature authority accounts.',
       'Includes foreign employer retirement accounts (e.g., UK SIPPs, Australian super, Canadian RRSP/TFSA).',
@@ -290,6 +293,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'fbar-fatca-reporting',
     relatedServiceName: 'FBAR & FATCA Compliance',
     applicableYears: 'Tax Year 2011 onward',
+    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Higher thresholds apply to expats living abroad compared to domestic US residents.',
       'Reports foreign stocks, foreign pensions, ownership interests in foreign companies, and contracts.'
@@ -309,6 +313,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'annual-expat-1040',
     relatedServiceName: 'Annual Expat 1040 Preparation',
     applicableYears: 'Annual adjustment',
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Only excludes earned income (wages, bonuses, professional fees); cannot exclude passive income (dividends, capital gains, pensions).',
       'Includes Foreign Housing Exclusion / Deduction for expenses above the statutory base.'
@@ -328,6 +333,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'annual-expat-1040',
     relatedServiceName: 'Annual Expat 1040 Preparation',
     applicableYears: 'All tax years',
+    imageUrl: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Taxes must be categorized into passive category, general category, or foreign branch baskets.',
       'Unused foreign tax credits can be carried back 1 year and carried forward up to 10 years.'
@@ -347,6 +353,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'form-5471-cfc-reporting',
     relatedServiceName: 'Form 5471 & CFC Compliance',
     applicableYears: 'All tax years',
+    imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Requires complete income statement and balance sheet translated from local accounting standards into US GAAP.',
       'Triggers calculation of GILTI (Global Intangible Low-Taxed Income) and Subpart F inclusions.'
@@ -366,6 +373,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'pfic-remedies-8621',
     relatedServiceName: 'PFIC Diagnostics & Form 8621',
     applicableYears: 'All active investment years',
+    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Most common expat trap: buying a local bank mutual fund or index fund in the UK, EU, or Australia.',
       'Requires election: Default Section 1291 (punitive), Mark-to-Market (MTM), or Qualified Electing Fund (QEF).'
@@ -385,6 +393,7 @@ export const FORMS_DATABASE: TaxForm[] = [
     relatedServiceSlug: 'foreign-trust-reporting',
     relatedServiceName: 'Form 3520 Foreign Trust & Gift Compliance',
     applicableYears: 'All transaction years',
+    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
     keyInstructions: [
       'Gifts are not subject to US income tax, but strict failure-to-report penalties apply.',
       'Must be filed separately from Form 1040 to the IRS Ogden Center.'
@@ -424,7 +433,7 @@ export const COUNTRIES_DATABASE: CountryGuide[] = [
     countryCode: 'CA',
     flagEmoji: '🇨🇦',
     region: 'Americas',
-    imageUrl: 'https://images.unsplash.com/photo-1517935703635-27190760b298?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80',
     treatyStatus: 'Active US-Canada Income Tax Treaty (with 5th Protocol)',
     treatySummary: 'The US-Canada tax treaty is one of the most comprehensive cross-border treaties in existence. It provides reciprocal recognition for RRSPs/RRIFs and coordinates social security benefits.',
     pensionTreatment: 'Canadian RRSPs and RRIFs automatically qualify for tax deferral without filing Form 8891. Warning: TFSAs (Tax-Free Savings Accounts) and RESPs are NOT tax-deferred in the US. TFSAs generate annual taxable income and may require Form 3520/3520-A reporting.',
